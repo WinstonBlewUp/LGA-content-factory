@@ -1,0 +1,16 @@
+{
+  "name": "content-factory",
+  "version": "1.0.0",
+  "main": "action.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass src/scss/style.scss dist/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "marked": "^14.1.2",
+    "sass": "^1.78.0"
+  }
+}

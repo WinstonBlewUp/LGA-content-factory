@@ -1,0 +1,19 @@
+*{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.body-wrapper{
+    width: 80%;
+    margin: auto
+}
+
+
+
+@import "components/tab.scss";
+@import "components/visuals.scss";
+@import "components/button.scss";
+@import "components/loader.scss";

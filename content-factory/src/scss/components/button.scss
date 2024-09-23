@@ -1,0 +1,25 @@
+.button{
+    all: unset;
+    border-radius: 16px;
+    padding: 8px 16px;
+    background-color: #EDEDED;
+    color: #000;
+    display: flex;
+    justify-content: center ;
+    cursor: pointer;
+
+    &-container{
+        display: flex;
+        margin-bottom: 1%;
+
+        
+    }
+
+    &-dark{
+        background-color: #000000;
+        color: #FFF;
+        &:last-child{
+            margin-left: 1%;
+        }
+    }
+}
