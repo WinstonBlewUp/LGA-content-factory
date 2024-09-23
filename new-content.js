@@ -357,48 +357,15 @@ async function monitorColumnsContinuously(recordId) {
 
 
 
-// async function checkColumnForContent(recordId, columnName) {
-//     try {
-//         const recordData = await airtableRequest('GET', `/${recordId}`);
-//         if (recordData.fields && recordData.fields[columnName]) {
-//             const columnContent = recordData.fields[columnName];
-//             if (Array.isArray(columnContent) && columnContent.length > 0) {
-//                 return true;
-//             }
-//             if (typeof columnContent === 'string' && columnContent.trim() !== '') {
-//                 return true;
-//             }
-//             return false;
-//         } else {
-//             return false;
-//         }
-//     } catch (error) {
-//         console.error("Erreur lors de la vérification de la colonne:", error);
-//         return false;
-//     }
-// }
-
 async function checkColumnForContent(recordId, columnName) {
     try {
         const recordData = await airtableRequest('GET', `/${recordId}`);
-        
         if (recordData.fields && recordData.fields[columnName]) {
             const columnContent = recordData.fields[columnName];
-
-            // Vérifier s'il s'agit d'un contenu récent
-            const createdTime = new Date(recordData.createdTime).getTime();
-            const currentTime = new Date().getTime();
-
-            // Ajout d'une marge de temps pour considérer le contenu comme récent
-            const timeDifference = currentTime - createdTime;
-
-            // Supposons que tout contenu généré dans les 2 dernières minutes est "nouveau"
-            const timeLimit = 2 * 60 * 1000;
-
-            if (Array.isArray(columnContent) && columnContent.length > 0 && timeDifference <= timeLimit) {
+            if (Array.isArray(columnContent) && columnContent.length > 0) {
                 return true;
             }
-            if (typeof columnContent === 'string' && columnContent.trim() !== '' && timeDifference <= timeLimit) {
+            if (typeof columnContent === 'string' && columnContent.trim() !== '') {
                 return true;
             }
             return false;
@@ -410,3 +377,36 @@ async function checkColumnForContent(recordId, columnName) {
         return false;
     }
 }
+
+// async function checkColumnForContent(recordId, columnName) {
+//     try {
+//         const recordData = await airtableRequest('GET', `/${recordId}`);
+        
+//         if (recordData.fields && recordData.fields[columnName]) {
+//             const columnContent = recordData.fields[columnName];
+
+//             // Vérifier s'il s'agit d'un contenu récent
+//             const createdTime = new Date(recordData.createdTime).getTime();
+//             const currentTime = new Date().getTime();
+
+//             // Ajout d'une marge de temps pour considérer le contenu comme récent
+//             const timeDifference = currentTime - createdTime;
+
+//             // Supposons que tout contenu généré dans les 2 dernières minutes est "nouveau"
+//             const timeLimit = 2 * 60 * 1000;
+
+//             if (Array.isArray(columnContent) && columnContent.length > 0 && timeDifference <= timeLimit) {
+//                 return true;
+//             }
+//             if (typeof columnContent === 'string' && columnContent.trim() !== '' && timeDifference <= timeLimit) {
+//                 return true;
+//             }
+//             return false;
+//         } else {
+//             return false;
+//         }
+//     } catch (error) {
+//         console.error("Erreur lors de la vérification de la colonne:", error);
+//         return false;
+//     }
+// }
