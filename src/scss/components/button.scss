@@ -8,11 +8,14 @@
     justify-content: center ;
     cursor: pointer;
 
+    input{
+        text-overflow: ellipsis;
+    }
+
     &-container{
         display: flex;
-        margin-bottom: 1%;
-
-        
+        margin-bottom: 1%; 
+        margin-top: 3%;
     }
 
     &-dark{
@@ -21,5 +24,18 @@
         &:last-child{
             margin-left: 1%;
         }
+    }
+
+    &-primary{
+        background-color: #95B5FF;
+    }
+    &-warning{
+        background-color: #FCCF40;
+    }
+    &-danger{
+        background-color: #FF726B;
+    }
+    &-success{
+        background-color: #9AFFA4;
     }
 }
