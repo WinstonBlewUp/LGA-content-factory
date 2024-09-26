@@ -1,0 +1,34 @@
+#blogModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-body {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+    max-height: 80%;
+    overflow-y: auto;
+
+    h1, h2, h3, p{
+        margin-bottom: 10px;
+    }
+}
+.close{
+    position: relative;
+    display: block;
+    left: 99%;
+    font-size: 25px;
+    color: red;
+    margin-top: -3%;
+}
