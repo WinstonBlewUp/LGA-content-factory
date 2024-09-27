@@ -9,10 +9,33 @@ const outputColumns = [
 ];
 
 let isLoading = false;
-let previousContentCount = {}; // Compteur pour chaque enregistrement
+let previousContentCount = {};
 
-// Cache pour stocker les enregistrements déjà affichés
+
 let recordCache = {};
+
+function applyBorderClassToButtons() {
+    const textInputs = document.querySelectorAll('input[id^="prompt-"]');
+
+    if (textInputs.length === 0) {
+        console.log('Aucun input avec id "prompt-" trouvé');
+    } else {
+        textInputs.forEach(textInput => {
+            if (textInput.value === "Entrez votre Contenu" || textInput.value.trim() === "") {
+                textInput.classList.add('button-border-red');
+            }
+        });
+
+        textInputs.forEach(textInput => {
+            textInput.addEventListener('input', () => {
+                if (textInput.value.trim() !== "") {
+                    textInput.classList.remove('button-border-red');
+                }
+            });
+        });
+    }
+}
+
 
 function openModal(encodedContent) {
     const modal = document.getElementById('blogModal');
@@ -152,7 +175,7 @@ async function readContent() {
 
             let createdAt = `<span style="color:#6B6B6B;font-size:14px">${new Date(record.createdTime).toLocaleDateString()}</span>`;
 
-            let statusButton = `<button id="send-button" class="button" onclick="startLoader();handleEditRecord('${recordId}', this)">Envoyer</button>`;
+            let statusButton = `<button id="send-button" class="button" onclick="startLoader();handleEditRecord('${recordId}', this)">GO !</button>`;
 
             let previewLinks = '';
             outputColumns.forEach(columnName => {
@@ -206,6 +229,7 @@ async function readContent() {
             `;
             recordsContainer.appendChild(div);
         });
+        applyBorderClassToButtons();
     }
 }
 

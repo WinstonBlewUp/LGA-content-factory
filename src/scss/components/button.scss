@@ -7,6 +7,13 @@
     display: flex;
     justify-content: center ;
     cursor: pointer;
+    margin-right: 0.5%;
+    text-wrap: nowrap;
+
+
+    span{
+        margin-top:-1%
+    }
 
     input{
         text-overflow: ellipsis;
@@ -37,5 +44,11 @@
     }
     &-success{
         background-color: #9AFFA4;
+    }
+    &-border{
+        border: 1px solid black;
+        &-red{
+            border: 1px solid #FF726B;
+        }
     }
 }
