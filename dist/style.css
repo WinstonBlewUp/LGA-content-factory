@@ -138,6 +138,11 @@ img {
   display: flex;
   justify-content: center;
   cursor: pointer;
+  margin-right: 0.5%;
+  text-wrap: nowrap;
+}
+.button span {
+  margin-top: -1%;
 }
 .button input {
   text-overflow: ellipsis;
@@ -165,6 +170,12 @@ img {
 }
 .button-success {
   background-color: #9AFFA4;
+}
+.button-border {
+  border: 1px solid black;
+}
+.button-border-red {
+  border: 1px solid #FF726B;
 }
 
 #loader-wrapper {
@@ -1386,6 +1397,7 @@ img {
   font-size: 25px;
   color: red;
   margin-top: -3%;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
